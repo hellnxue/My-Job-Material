@@ -1,0 +1,245 @@
+com.java.Student.java   //构造函数与关键字this的用法
+com.java.TestThis.java  //构造函数与关键字this的用法
+
+ * 常量表示
+ * 16进制、8进制表示，以及char、byte、short的范围，后缀表示等
+com.java.TestConstant.java  
+
+
+com.java.TestControlStatement.java  //各种控制语句
+
+com.java.TestStaticInitialization.java  //静态数据的初始化
+
+com.java.TestStaticInitialization.java  //短路与，与；短路或，或。
+
+com.java.TestExplicitStatic.java  //显示的静态初始化
+
+com.java.TestNotStaticObject.java  // 非静态初始化
+
+com.java.TestArry.java  // 数组的初始化
+
+com.java.EnumType.java  // 枚举类型
+
+com.java.TestPrivate1 、TestPrivate2 // private修饰符
+
+
+TestProtected 、TestProtected1、TestForProtected、TestForProtected // protected修饰符
+
+
+一、对象的创建过程：
+
+  假设有个名为Dog的类
+  1、即使没有显示的使用static关键字，构造器实际上也是静态的。因此，在首次创建类型为Dog的对象时（构造器可以看成静态方法），或者Dog类的静态方法/静态域首次被访问时，Java解释器必须查找类路径，以定位Dog.class文件。
+
+  2.然后载入Dog.class（这将创建一个Dog对象），有关静态初始化的所有方法都会被执行。因此，静态初始化只在Class对象首次加载的时候执行一次。
+  
+  3.当用new Dog()创建对象的时候，首先在堆上为Dog对象分配足够多得存储空间。
+
+  4.这块存储空间会被清零，这就自动将Dog对象中的所有基本数据类型都设置成了默认值（对数字来说就是0，对布尔型和数字型都相同），而引用则被设置成了null。
+
+  5.执行所有出现于字段定义处的初始化动作。
+
+  6.执行构造器。这可能会牵涉到许多动作，尤其是涉及继承的时候。
+
+
+二、枚举类型概念：
+
+   在C#或C++,java等一些计算机编程语言中，枚举类型是一种基本数据类型而不是构造数据类型，而在C语言等计算机编程语言中，它是一种构造数据类型。枚举类型用于声明一组命名的常数，当一个变量有几种可能的取值时，可以将它定义为枚举类型。
+
+枚举类型定义：是指将变量的值一一列出来,变量的值只限于列举出来的值的范围内.
+
+三、包访问权限：
+   当一个类的成员前面没有任何访问权限修饰符修饰时，我们就说他是“fiendly权限”，或者“default权限”。当前包中的所有其他类对这个成员都有访问权限，但对于这个包之外的所有类，这个成员却是private。由于一个编译单元（即一个文件）只能隶属于一个包，所以包访问权限，处于同一个编辑单元的所有类彼此之间都是可以自动访问的。
+   要想其他包的类也能访问该成员，只需把类成员修饰成public。
+
+
+   1.java中是否有friendly和default修饰符?
+         java中所谓的“friendly”和“default”都只是一种说法，并不是说真有那么一个指定默认访问权限的关键字    （default倒的确是个语言关键字，但那是用在switch语句中的，跟楼主的问题无关）。
+
+	   Java中类的成员权限修饰符只有三个：public/private/protected。
+	当一个类的成员前面没有任何访问权限修饰符修饰时，我们就说他是“fiendly权限”，或者“default权限”（	注意，只是这样“说”，并不是主你可以那样写上去）。这种说法指的就是那种可以从package内部或子类中访     	问的成员。
+
+	C++中也没有“friendly”，只有一个“friend”，但那是另一个意思。它虽然跟访问权限有点关系，但并不是	一个访问权限修饰符，C++的权限修饰符也是只有那3种。而且C++默认的是private，这点也跟Java不一样。
+
+	C#倒是给另外一种“默认的”权限修饰符赋于了一个真正的语言关键字：internal。即写上internal跟不写是一	个意思。
+      
+
+
+四.java里i++和i=i+1的区别
+
+  void f( final int i ) { i++ ; } //错误
+  int g(final int i ) {return i + 1 ; } //正确很是不解，这两者有有什么区别吗？什么叫可以读参数，但却无法修改参数，两个不都修改了吗？
+  
+   解释1：final修饰的变量时不能改变它的值，有点类似定义常量(注意：是类似，不是等同)。i++是变量i自增，即i=i+1，也就是在改变i本身的值，此时用final修饰了 所以这样是错误的；return i+1的含义是 int n; n=i+1; return n; 这里并没改变i本身的值，所以这样是正确的。楼主对基本语法还不是很熟悉。
+   
+   解释2：
+        final 修饰一个变量时，该变量得值不可以更改。
+
+
+	i++ 是修改 i的值，也就是为i重新赋值了。
+
+
+	而 i+1 没有为i重新赋值。
+	追问：
+	   i+1没有重新赋值？能说明白点吗，不懂，返回的是2怎么说是没有修改值呢？
+	回答：
+	   当 i = 1 是，i+1的值是2 ，但i的值没有改变，还是1 。
+   
+    解释3：
+        区别在return上，final是定义的后值固定了，比如3.14就是，值是固定不变了，当然不可以该了
+
+五.不可变的String,是指内存
+        s=s+s1，相当于一个赋值。
+	s+s1就形成了字符串“wode”
+	再把“wode”赋给s
+	java中的对象相当于C中的指针，此处就相当于一个s指针指向”wo“，然后通过赋值，s指针重新指向”wode“字符串。
+	"wo"并没有消失，只是s已经没有指向它了~
+
+六、请问java中的编译期和运行期有什么区别?
+
+    	1.编译期和运行期进行的操作是不相同的，编译器只是进行语法的分析，分析出来的错误也只是语法上的错误，而运行期在真正在分配内存··比如说你写一个while循环，一直往栈里写，编译器是不会出错的，可是运行期就会出现栈满的错误··
+
+        2.java中是什么时候分配内存？编译期还是运行期？
+
+          这肯定是运行期编译的时候，跟内存都没关系，完全是java代码转成字节码的过程，你写的代码没有任何计算、运行，所以根本谈不上内存的分配。
+  
+        3.java中的域是什么意思，实例域又是什么意思？
+
+           所谓的域，翻译成英文就是field， 也就是我们常说的字段，或者说是属性。 比如类的字段（属性），局部的，全局的，等等~ 。
+
+实例域：
+比如：
+class A{
+  private int i=0;//对象变量
+  public static void main(String[] args)
+  {
+       A a = new A();
+       //a是个实例，那么这个实例的作用域就是“实例域"
+   }
+}
+
+七、多态
+   　　
+　　1.多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。多态性增强了软件的灵活性和扩展性。
+
+     例如，下面代码中的UserDao是一个接口，它定义引用变量userDao指向的实例对象由daofactory.getDao()在执行的时候返回，有时候指向的是UserJdbcDao这个实现，有时候指向的是UserHibernateDao这个实现，这样，不用修改源代码，就可以改变userDao指向的具体类实现，从而导致userDao.insertUser()方法调用的具体代码也随之改变，即有时候调用的是UserJdbcDao的insertUser方法，有时候调用的是UserHibernateDao的insertUser方法：
+　　UserDao userDao = daofactory.getDao();  
+　　userDao.insertUser(user);
+　　
+　　比喻：人吃饭，你看到的是左手，还是右手？
+
+   2.java中实现多态的机制是什么？
+ 
+　　靠的是父类或接口定义的引用变量可以指向子类或具体实现类的实例对象，而程序调用的方法在运行期才动态绑定，就是引用变量所指向的具体实例对象的方法，也就是内存里正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。 
+
+
+八、
+   如果一个类没有显示的声明继承自那个类，那么它自动的继承自Object
+
+
+九、java.util.List和java.awt.List
+    
+     java.util.List是接口
+    
+     java.awt.List是一个类，它的add方法的参数必须是String类型，不像接口List可以使用泛型。
+
+十、java的预定类是什么？
+   	 Java里面预定义是指，已经定义好的类，例如String，Integer等等；
+	这些预定义的类都在java.lang包里面，jvm默认会加载这个包里面的所有类到JVM。
+
+	对于其他预定义类，例如java.util包里面的，要是的就必须引入才可以。
+	例如，你要使用ArrayList，你就必须在程序前面
+	import java.util.ArrayList;
+	对于String这些在java.lang包里面的就不用引入
+	例如下面就是多余的：
+	import java.lang.String;
+   
+十一、java的23种代理模式？  
+
+      工厂模式，单例模式，代理模式
+
+十二、重载方法的返回类型问题
+     	/**
+	 * 如果几个Overloaded的方法的参数列表不一样，它们的返回者类型当然也可以不一样。但我估计你想问的问           题是：如果两个方法的参数列表完全一样
+	 * 它们的返回类型不能一样
+	 * @param i
+	 * @param s
+	 */
+	public static void Hs(int i,String s){}//OK
+	public static int Hs(int i,Boolean b){ return 1;}//OK
+	//public static String Hs(int i,Boolean b){ return "hehehe";}//No
+
+十三、java比较器Comparable接口和Comaprator接口
+
+http://www.cnblogs.com/xwdreamer/archive/2012/04/17/2454631.html
+
+
+十四、用static修饰的代码块表示静态代码块，当Java虚拟机（JVM）加载类时，就会执行该代码块（用处非常大，呵呵）。
+
+1、static变量
+　按照是否静态的对类成员变量进行分类可分两种：一种是被static修饰的变量，叫静态变量或类变量；另一种是没有被static修饰的变量，叫实例变量。
+
+两者的区别是：
+　对于静态变量在内存中只有一个拷贝（节省内存），JVM只为静态分配一次内存，在加载类的过程中完成静态变量的内存分配，可用类名直接访问（方便），当然也可以通过对象来访问（但是这是不推荐的）。
+　对于实例变量，没创建一个实例，就会为实例变量分配一次内存，实例变量可以在内存中有多个拷贝，互不影响（灵活）。
+
+所以一般在需要实现以下两个功能时使用静态变量：
+  在对象之间共享值时
+  方便访问变量时
+
+static与实例变量案例：
+public class TestStatic {
+	
+	static int i=0;
+	int j=0;
+
+	public static void main(String[] args) {
+		TestStatic s=null;
+		System.out.println(s.i);//0
+		System.out.println(s.j);//NullPointException
+
+	}
+
+}
+
+
+
+
+
+模糊问题积累
+
+   1.枚举类型是一种基本数据类型吗？
+
+   
+   
+
+public class TestStatic {
+	
+	static int i=0;
+	int j=0;
+
+	public static void main(String[] args) {
+		TestStatic s=null;
+		System.out.println(s.i);
+		System.out.println(s.j);
+
+	}
+
+}
+
+
+
+
+
+
+
+
+没看的：
+5.8.1 可变参数列表
+
+
+
+
+
+
+

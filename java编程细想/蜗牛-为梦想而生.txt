@@ -1,0 +1,43 @@
+java基础浏览  输入输出流
+
+jsp基础
+
+框架
+
+数据库
+1、mysql  2、oracle
+
+项目浏览
+
+
+如：1.当tomcat存放的项目过多时，tomcat日志catalina.out会报内存溢出错误 java.lang.OutOfMemoryError: PermGen space。 通过手动设置文件catalina.sh中最大堆栈MaxPermSize大小扩大内存。
+访问项目报404错误。 原因：是项目的struts.xml中dtd引入路径的问题，在struts2-core.jar中找存在的dtd，引入存在的dtd即可
+
+
+java编程思想
+
+
+
+javaIo
+
+MyBatis拼SQL的用法
+
+jQeury框架的用处：
+jQuery是一个js的框架....他能做页面特效..Ajax后台访问..如果你之前用过JavaScript的话..那么用jQuery取代JavaScript就会令你的程序更直观..代码更少..但做更多的事..write less ..do more ...就是jQuery的宗旨...以上是个人观点....
+
+
+项目模块具体实现技术
+
+Linux简单命令
+
+servlet   servletConfig  servletContext
+
+哈希码值是用来干什么的
+
+
+get请求与post请求区别
+
+Java中final修饰的常用类有哪些除String：有Class、Integer等基本类型的包装类
+
+
+

@@ -25,7 +25,7 @@ package com.java.Interface;
 	 */
 	//public static abstract void g();
 	
-	abstract void yy();
+	abstract  void yy();
 	
 	protected void h(){
 		
@@ -92,6 +92,11 @@ public  class TestAbstract extends TestAbstract1{
 			e.printStackTrace();
 		}
 		
+		
+		//模拟模板设计模式
+		BaseServlet bs=new SunServlet();
+		bs.service();
+		
 	}
 	@Override
 	public void hhs() {
@@ -105,4 +110,43 @@ public  class TestAbstract extends TestAbstract1{
 	}
 	void s(){}
 
+}
+
+/**
+ * 模仿模板设计模式
+ * @author Administrator
+ * 用法案例：
+ *	BaseServlet bs=new SunServlet();
+	bs.service();
+ */
+abstract class BaseServlet{
+  
+	public final void service(){
+		System.out.println("父类里的业务逻辑处理。。。。");
+		try{
+			doService();
+		}catch(Exception e){
+			System.out.println("错误异常信息："+e.getMessage());
+			e.printStackTrace();
+			
+		}
+		
+	}
+	
+	public abstract void doService();
+}
+
+
+class SunServlet extends BaseServlet {
+
+	@Override
+	public void doService() {
+		String s=null;
+		boolean flag=s.equals("");
+		System.out.println("子类里的业务逻辑处理。。。。");
+		
+	}
+	
+	
+	
 }

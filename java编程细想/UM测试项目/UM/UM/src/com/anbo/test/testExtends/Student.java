@@ -10,12 +10,12 @@ public class Student {
 	 
 	 
 	 
-	 
-	/* public Student(String name,int sex){
+/*	 
+	  public Student(String name,int sex){
 		 this.name=name;
 		 this.sex=sex;
 		 
-	 }*/
+	 } */
 	  
 	  private void testPrivate(){
 		  System.out.println("Student private function");

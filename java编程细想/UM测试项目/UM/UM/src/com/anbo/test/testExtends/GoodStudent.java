@@ -11,11 +11,12 @@ public class GoodStudent extends Student{
 	
 	//私有方法
 	private void testPrivate(){
+		  super.sayHello();
 		  System.out.println("GoodStudent private function");
 	  }
 	//方法重写
     public void sayHello(){
-    	//super.sayHello();//调用父类的方法
+    	//super.sayHello();//调用父类的方法 不能直接调用sayHello() 因为这样在调用这个方法时会造成死循环，因为方法名字一样
     	System.out.println("hello GoodStudent");
     }
     Student stu=new Student();
@@ -24,6 +25,8 @@ public class GoodStudent extends Student{
     	
     	
     }*/
+    
+
     
    public static void main(String[] args) {
 	
@@ -38,6 +41,6 @@ public class GoodStudent extends Student{
 	Student stu3=stu2;
 	stu3.call();
 	
-	
+	stu2.testPrivate();
 }
 }

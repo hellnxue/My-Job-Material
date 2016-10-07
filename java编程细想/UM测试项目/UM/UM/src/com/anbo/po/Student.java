@@ -116,14 +116,20 @@ public static List<Student> compareCollectionForStudent(){
 	return lt;
 }
 public static void main(String[] args) {
-	System.out.println("对象数组排序------------------------------------------------");
-	for(Student s:compareArrayForStudent()){
-		System.out.println(s);
-	}
-	System.out.println("对象集合排序------------------------------------------------");
-	for(Student s:compareCollectionForStudent()){
-		System.out.println(s);
-	}
+//	System.out.println("对象数组排序------------------------------------------------");
+//	for(Student s:compareArrayForStudent()){
+//		System.out.println(s);
+//	}
+//	System.out.println("对象集合排序------------------------------------------------");
+//	for(Student s:compareCollectionForStudent()){
+//		System.out.println(s);
+//	}
+	
+	int r="abc".compareTo("a");
+	int x=new Integer(1).compareTo(1);
+	System.out.println(r);
+	System.out.println(x);
+	System.out.println();
 }
    
 }

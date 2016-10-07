@@ -23,7 +23,7 @@ public class TestInitializer {
 		 * 动态初始化	 
 		 */
 		 int[] i=new int[3];
-		 //下面代码会报错：数组常量只能用于初始化。原因数组变量不识别{1,2,3}，{1,2,3}的常量数据只能用在数组初始化的时候使用
+		 //下面代码会报错：数组常量只能用于初始化。原因数组变量不识别{1,2,3}，{1,2,3}的常量数据只能用在数组创建的时候使用
 		// i={1,2,3};  
 		 i[0]=1;
 		 i[1]=1;
@@ -38,7 +38,26 @@ public class TestInitializer {
 		 i[2]=3;
 		 
 		 int[] j={1,2,3};
+		 
+		 
+		 System.out.println("=============");
+		 variables(new String[]{"h","e","l","o"});
+		 variables("h","e","l","o");
 
+		 System.out.println(String.class);
+	}
+	
+	/**
+	 * 可变参数列表
+	 * @param s
+	 */
+	static void variables(String ...s){
+		System.out.print (s.getClass());
+		for(String x:s){
+			System.out.print(x+" ");
+			
+		}
+		System.out.println();
 	}
 
 }

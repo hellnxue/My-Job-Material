@@ -9,6 +9,7 @@ import java.util.*;
  *
  */
 public class ArraysDefinitionObjectOrBase {
+	
 
 	/**
 	 * @param args
@@ -16,6 +17,7 @@ public class ArraysDefinitionObjectOrBase {
 	public static void main(String[] args) {
 
 		Random rd=new Random(47);
+		 
 
 		/**
 		 * function No3
